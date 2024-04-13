@@ -1,0 +1,6 @@
+/* Component specific styles here */
+
+.scrollAbleContent{
+    height: 82vh;
+    overflow: scroll;
+}

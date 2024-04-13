@@ -1,0 +1,43 @@
+:root {
+    --blue: #663399;
+    --indigo: #333399;
+    --purple: #6f42c1;
+    --pink: #993399;
+    --red: #993333;
+    --orange: #fd7e14;
+    --yellow: #f6c23e;
+    --green: #3A9933;
+    --teal: #20c9a6;
+    --cyan: #36b9cc;
+    --white: #fff;
+    --ghost-white: #F0EBF5;
+    --black: #000000;
+    --gray: #898989;
+    --gray-dark: #454545;
+
+    --primary: var(--blue);
+    --secondary: var(--gray);
+    --success: var(--green);
+    --info: var(--cyan);
+    --warning: var(--yellow);
+    --danger: var(--red);
+    --light: var(--ghost-white);
+    --dark: var(--gray-dark);
+    --bg-gray-200: #eaecf4;  
+    --bg-gray-300: #eaecf4;  
+    --bg-gray-400: #d1d3e2;  
+    --bg-gray-500: #b7b9cc;   
+    --bg-gray-600: var(--secondary);
+    --bg-gray-700: #6e707e;    
+    --bg-gray-800: var(--dark); 
+    --bg-gray-900: #3a3b45;
+
+    --onhover-opacity: 0.8;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }

@@ -1,0 +1,24 @@
+//29022024
+menu 
+    Role Admin
+        Dashoard
+            - Graphs
+        Studets
+            - Add student
+            - 
+        Placements
+        Attendance
+            -Add att
+        Configurations
+            - Ad year
+                -Add
+            - Cl
+                -Add
+            -Assigments
+
+
+    Role Student
+        My Placements
+        My Attendece
+        My Assigments
+        My Fees
