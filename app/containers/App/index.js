@@ -4,7 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Login from '../LoginPage/Loadable';
 import Logout from '../Logout/Loadable';
 import Dashboard from '../DashboardPage/Loadable';
-import Students from '../StudentsPage/Loadable';
+import Students from '../StudentsView/Loadable';
 import '../../css/baseStyles.css'; // base styleSheet with themes
 import '../../css/rs-styles.css';
 import '../../css/rg-styles.css';
@@ -20,7 +20,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { globalConfigs } from '../../globalConfigs';
 import PageNotFound from '../PageNotFound';
 import { BetaFlag } from '../../components';
-import Classes from '../ClassesPage/Loadable';
 import { events as EVENT } from './../ConstantManager';
 
 let isUserVerified;
@@ -111,8 +110,9 @@ export default function App(props) {
                   {/* Classes routes */}
                   <Route exact path="/classes" heading="Classes" render={ checkRole('classes') ? (props) => <Classes {...props} setShowProgressBar={setShowProgressBar} setShowSideBar={setShowSideBar} /> : (props) => <PageNotFound {...props} unauthorized={true} /> }/>
 
+                  {/* Teachers routes */}
+                  <Route exact path="/teachers" heading="Teachers" render={ checkRole('teachers') ? (props) => <Teachers {...props} setShowProgressBar={setShowProgressBar} setShowSideBar={setShowSideBar} /> : (props) => <PageNotFound {...props} unauthorized={true} /> }/>
 
-                  {/* <Route exact path="/logout" component={Logout} /> */}
                   <Route exact path="/logout" render={ (props) => <Logout {...props} /> } />
                   <Route path="*" component={PageNotFound} />    
                   </Switch>

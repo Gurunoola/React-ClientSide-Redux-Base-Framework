@@ -19,3 +19,15 @@ export const isBirthday = (d)=>{
     const today = new Date();
     return date.getDate() === today.getDate() && date.getMonth() === today.getMonth()
 };
+
+export const alterView = (mode) => {
+    let cl = 'col-md-12 mr-3';
+    switch (mode) {
+      case 'view':
+      case 'new':
+      case 'edit':
+        cl = 'd-none col-md-4 mr-3';
+      break;
+  }
+  return cl;
+}
