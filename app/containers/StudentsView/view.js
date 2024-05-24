@@ -17,15 +17,6 @@ export function View({ setView, props, title, id, onEdit, confirmDelete }) {
 
   const actionButtons = [
     {
-      // title: ``,
-      iconOptions: { icon: 'x-lg',  type: 'secondary', toolTip: { title: 'Close', placement:'top'} },
-      type: '',
-      onClick: (event) => {
-        setView('list')
-      }
-    },
-    {
-      // title: `${labels.BUTTON_EDIT}`,
       iconOptions: { icon: 'pencil',  type: 'secondary', toolTip: { title: 'Edit', placement:'top'}  },
       type: '',
       onClick: (event) => {
@@ -33,13 +24,19 @@ export function View({ setView, props, title, id, onEdit, confirmDelete }) {
       }
     },
     {
-      // title: `${labels.BUTTON_DELETE}`,
       iconOptions: { icon: 'trash3', type: 'secondary', toolTip: { title: 'Delete', placement:'top'}  },
       type: '',
       onClick: (event) => {        
         confirmDelete(event, id)
-      },
-    }
+      }
+    },
+    {
+      iconOptions: { icon: 'x-lg',  type: 'secondary', toolTip: { title: 'Close', placement:'top'} },
+      type: '',
+      onClick: (event) => {
+        setView('list')
+      }
+    },
   ];
 
   useEffect(() => {
@@ -59,7 +56,7 @@ export function View({ setView, props, title, id, onEdit, confirmDelete }) {
 
   return (
     <div className=''>
-      <ToolBar title={title} mode={'View'} actionButtons={actionButtons} />
+      <ToolBar title='/' mode={'View'} actionButtons={actionButtons} />
       <div className='col-md-12 p-4 bg-white text-center text-md-left text-lg-left '>
         <div className='row m-0 p-0'>
           <div className='col-md-2'>

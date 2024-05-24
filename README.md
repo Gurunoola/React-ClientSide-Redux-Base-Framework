@@ -1,8 +1,8 @@
 # React-ClientSide-Redux-Base-Framework
 
-For this project, I've utilized a school ERP as an example. However, the code can be adapted for any type of CRUD applications.
+For this project, I've used a school ERP as an example. However, the code can be modified for any type of CRUD application.
 
-Please find below the screenshots.
+Below are the screenshots.
 
 **Login:**
 <img width="1438" alt="Screenshot 2024-04-13 at 8 26 05 PM" src="https://github.com/Gurunoola/React-ClientSide-Redux-Base-Framework/assets/14822486/ca0f219c-b50b-406c-98ad-dc7b2a677045">

@@ -12,7 +12,6 @@ import {
   Collapsiable,
   useHistory
 } from './imports'
-import { set } from 'lodash';
 
 export function Edit({ showProgressBar, data, title, id, onView, onSubmit }) {
   const [formData, setFormData] = useState({});
@@ -47,33 +46,33 @@ export function Edit({ showProgressBar, data, title, id, onView, onSubmit }) {
   const actionButtons = [
     {
       title: ``,
-      iconOptions: { icon: 'x-lg', type: 'secondary', toolTip: { title: 'Close', placement:'top'} },
-      type: '',
-      onClick: (event) => {
-        onView(event, id)
-      }
-    },{
-      // title: `${labels.BUTTON_SAVE_CLOSE}`,
-      iconOptions: { icon: 'floppy', asSvg: true, type: 'secondary', toolTip: { title: 'Save', placement:'top'} },
+      iconOptions: { icon: 'floppy', asSvg: true, type: 'secondary', toolTip: { title: `${labels.BUTTON_SAVE_CLOSE}`, placement:'top'} },
       type: '',
       onClick: (event) => {
         document.getElementById('form').dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }))
       }
     },
     {
-      // title: `${labels.BUTTON_RESET}`,
-      iconOptions: { icon: 'arrow-repeat', type: 'secondary', toolTip: { title: 'Reset', placement:'top'} },
+      title: ``,
+      iconOptions: { icon: 'arrow-repeat', type: 'secondary', toolTip: { title: `${labels.BUTTON_RESET}`, placement:'top'} },
       type: '',
       onClick: (event) => {
         reset();
 
       }
     },
+    {
+      title: ``,
+      iconOptions: { icon: 'x-lg', type: 'secondary', toolTip: { title: 'Close', placement:'top'} },
+      type: '',
+      onClick: (event) => {
+        onView(event, id)
+      }
+    }
   ];
 
   if(id === 'new'){
     actionButtons.splice(2, 0, {
-      //title: `${labels.BUTTON_SAVE_CONTINUE}`,
       iconOptions: { icon: 'save', type: 'secondary', toolTip: { title: 'Save & Continue', placement:'top'} },
       type: '',
       onClick: (event) => {
@@ -85,283 +84,10 @@ export function Edit({ showProgressBar, data, title, id, onView, onSubmit }) {
     });
 }
 
-// const fData = {
-//   "studentDetails": [
-//   {
-//     name: 'firstName',
-//     label: labels.FIRST_NAME,
-//     type: 'text',
-//     validation: basicValidationRules
-//   },
-//   {
-//     name: 'lastName',
-//     label: labels.LAST_NAME,
-//     type: 'text',
-//     validation: basicValidationRules
-//   },
-//   {
-//     name: 'email',
-//     label: labels.EMAIL,
-//     type: 'email',
-//     validation: { ...validationRules.required, ...validationRules.email }
-//   },
-//   {
-//     name: 'primaryMobile',
-//     label: labels.PRIMARY_MOBILE,
-//     type: 'number',
-//     validation: { ...validationRules.required, ...validationRules.phone }
-//   },
-//   {
-//     name: 'secondaryMobile',
-//     label: labels.SECONDARY_MOBILE,
-//     type: 'number',
-//     validation: { ...validationRules.phone }
-//   },
-//   {
-//     name: 'gender',
-//     label: labels.GENDER,
-//     type: 'select',
-//     validation: basicValidationRules,
-//     async: true,
-//     asyncDataType: 'gender'
-//   },
-//   {
-//     name: 'aadhaarNumber',
-//     label: labels.AADHAAR,
-//     type: 'text',
-//     validation: { ...validationRules.required, ...validationRules.aadhaar }
-//   },
-//   {
-//     name: 'dob',
-//     label: labels.DOB,
-//     type: 'date',
-//     validation: { ...validationRules.required, ...validationRules.dob }
-//   },
-//   {
-//     name: 'bloodGroup',
-//     label: labels.BLOOD_GROUP,
-//     type: 'select',
-//     validation: { ...validationRules.required },
-//     async: true,
-//     asyncDataType: 'bloodGroup'
-//   },
-//   {
-//     name: 'class.id',
-//     label: labels.CLASS,
-//     type: 'select',
-//     validation: { ...validationRules.required },
-//     async: true,
-//     asyncDataType: 'classes'
-//   },
-//   {
-//     name: 'medicalCondition',
-//     label: labels.MEDICAL_CONDITION,
-//     type: 'text',
-//     validation: { ...validationRules.maxLength100 }
-//   }
-// ],
-// "addressDetails": [
-//   {
-//     name: 'addresses.address1',
-//     label: labels.ADDRESS_1,
-//     type: 'text',
-//     validation: basicValidationRules
-//   },
-//   {
-//     name: 'addresses.address2',
-//     label: labels.ADDRESS_2,
-//     type: 'text',
-//     validation: basicValidationRules
-//   },
-//   {
-//     name: 'addresses.city',
-//     label: labels.CITY,
-//     type: 'text',
-//     validation: basicValidationRules
-//   },
-//   {
-//     name: 'addresses.state',
-//     label: labels.STATE,
-//     type: 'text',
-//     validation: basicValidationRules
-//   },
-//   {
-//     name: 'addresses.country',
-//     label: labels.COUNTRY,
-//     type: 'text',
-//     validation: basicValidationRules
-//   },
-//   {
-//     name: 'addresses.pincode',
-//     label: labels.PIN_CODE,
-//     type: 'number',
-//     validation: { ...validationRules.required, ...validationRules.pincode }
-//   }
-// ],
-// "parentDetails1": [
-//   {
-//     name: 'parents[0].relationship',
-//     label: labels.RELATIONSHIP,
-//     type: 'select',
-//     validation: basicValidationRules,
-//     async: true,
-//     asyncDataType: 'relationship'
-//   },
-//   {
-//     name: 'parents[0].firstName',
-//     label: labels.FIRST_NAME,
-//     type: 'text',
-//     validation: basicValidationRules
-//   },
-//   {
-//     name: 'parents[0].lastName',
-//     label: labels.LAST_NAME,
-//     type: 'text',
-//     validation: basicValidationRules
-//   },
-//   {
-//     name: 'parents[0].email',
-//     label: labels.EMAIL,
-//     type: 'email',
-//     validation: { ...validationRules.email }
-//   },
-//   {
-//     name: 'parents[0].primaryMobile',
-//     label: labels.PRIMARY_MOBILE,
-//     type: 'number',
-//     validation: { ...validationRules.required, ...validationRules.phone }
-//   },
-//   {
-//     name: 'parents[0].officeAddress',
-//     label: labels.OFFICE_ADDRESS,
-//     type: 'text',
-//     validation: basicValidationRules
-//   },
-//   {
-//     name: 'parents[0].dob',
-//     label: labels.DOB,
-//     type: 'date',
-//     validation: { ...validationRules.required }
-//   },
-//   {
-//     name: 'parents[0].gender',
-//     label: labels.GENDER,
-//     type: 'select',
-//     validation: basicValidationRules,
-//     async: true,
-//     asyncDataType: 'gender'
-//   },
-//   {
-//     name: 'parents[0].occupation',
-//     label: labels.OCCUPATION,
-//     type: 'text',
-//     validation: { ...validationRules.maxLength50 }
-//   },
-//   {
-//     name: 'parents[0].designation',
-//     label: labels.DESIGNATION,
-//     type: 'text',
-//     validation: { ...validationRules.maxLength50 }
-//   },
-//   {
-//     name: 'parents[0].qualification',
-//     label: labels.QUALIFICATION,
-//     type: 'text',
-//     validation: { ...validationRules.maxLength50 }
-//   }
-// ],
-// "parentDetails2": [
-//   {
-//     name: 'parents[1].relationship',
-//     label: labels.RELATIONSHIP,
-//     type: 'select',
-//     validation: basicValidationRules,
-//     async: true,
-//     asyncDataType: 'relationship'
-//   },
-//   {
-//     name: 'parents[1].firstName',
-//     label: labels.FIRST_NAME,
-//     type: 'text',
-//     validation: basicValidationRules
-//   },
-//   {
-//     name: 'parents[1].lastName',
-//     label: labels.LAST_NAME,
-//     type: 'text',
-//     validation: basicValidationRules
-//   },
-//   {
-//     name: 'parents[1].email',
-//     label: labels.EMAIL,
-//     type: 'email',
-//     validation: { ...validationRules.email }
-//   },
-//   {
-//     name: 'parents[1].primaryMobile',
-//     label: labels.PRIMARY_MOBILE,
-//     type: 'number',
-//     validation: { ...validationRules.required, ...validationRules.phone }
-//   },
-//   {
-//     name: 'parents[1].officeAddress',
-//     label: labels.OFFICE_ADDRESS,
-//     type: 'text',
-//     validation: basicValidationRules
-//   },
-//   {
-//     name: 'parents[1].dob',
-//     label: labels.DOB,
-//     type: 'date',
-//     validation: { ...validationRules.required }
-//   },
-//   {
-//     name: 'parents[1].gender',
-//     label: labels.GENDER,
-//     type: 'select',
-//     validation: basicValidationRules,
-//     async: true,
-//     asyncDataType: 'gender'
-//   },
-//   {
-//     name: 'parents[1].occupation',
-//     label: labels.OCCUPATION,
-//     type: 'text',
-//     validation: { ...validationRules.maxLength50 }
-//   },
-//   {
-//     name: 'parents[1].designation',
-//     label: labels.DESIGNATION,
-//     type: 'text',
-//     validation: { ...validationRules.maxLength50 }
-//   },
-//   {
-//     name: 'parents[1].qualification',
-//     label: labels.QUALIFICATION,
-//     type: 'text',
-//     validation: { ...validationRules.maxLength50 }
-//   }
-// ]
-// }
-// function handleFormSubmit(data){
-//   showProgressBar(true); onSubmit(data, isNewUser, isSaveAndNew)
-// }
-// function getForm2() {
-//   return <div className='bg-white'>
-//     <FormBuilder 
-//       cols={3}  
-//       id={'form'}
-//       data={fData}
-//       defaultValues={formData}
-//       onSubmit={handleFormSubmit}
-//     /></div>
-// }
-
   function getForm() {
     return <>
       <form id='form' onSubmit={handleSubmit((data) => { onSubmit(data, isNewUser, isSaveAndNew) })}>
-        <h5 className='pl-3 pt-3 pb-3 border-bottom'>{_.capitalize(title)} Details</h5>
-        <div className='bg-white p-3'>
+        <Collapsiable title={title + ' Details'} body={<div className='bg-white p-3'>
           <div className="row">
             <div className='col-md-4 mb-4'>
               <label>{labels.FIRST_NAME}{astrix}</label>
@@ -432,7 +158,7 @@ export function Edit({ showProgressBar, data, title, id, onView, onSubmit }) {
               <ErrorMessage errors={errors} name="medicalCondition" render={({ message }) => <p className='text-danger fs-6 fst-italic'>{message}</p>} />
             </div>
           </div>
-        </div>
+        </div>} defaultCollapsed={false} />
         <Collapsiable title={'Address Details'} body={<div className='bg-white p-3'>
           <div className="row">
             <div className='col-md-4 mb-4'>
@@ -468,8 +194,7 @@ export function Edit({ showProgressBar, data, title, id, onView, onSubmit }) {
               <ErrorMessage errors={errors} name="addresses.pincode" render={({ message }) => <p className='text-danger fs-6 fst-italic'>{message}</p>} />
             </div>
           </div>
-        </div>} defaultCollapse={false} />
-
+        </div>} defaultCollapsed={true} />
         <Collapsiable title={'Parents Details'} body={<><p className='bg-custom-gray p-3 m-0'>
           <strong>{_.chain(formData).get('parents[0].relationship').capitalize().value()}</strong>
         </p>
@@ -613,28 +338,18 @@ export function Edit({ showProgressBar, data, title, id, onView, onSubmit }) {
                 <ErrorMessage errors={errors} name="parents[1].relationship" render={({ message }) => <p className='text-danger fs-6 fst-italic'>{message}</p>} />
               </div>
             </div>
-          </div></>} defaultCollapse={false} />
-
-        {/* <div className='row p-4'>
-          <div className='d-flex w-100 justify-content-end'>
-            <input type="submit" value={isNewUser ? labels.BUTTON_SAVE : labels.BUTTON_UPDATE} className='float-end btn btn-inline btn-primary mr-2' />
-            <input type="button" value={labels.BUTTON_RESET} onClick={() => { reset(); }} className='float-end btn btn-inline btn-warning mr-2' />
-          </div>
-        </div> */}
+          </div></>} defaultCollapsed={true} />
       </form>
     </>
   }
 
-  const addNewForm = () => {
-    return getForm([])
-  }
   return (
-    <div className="">
-      <ToolBar title={title} mode={'Edit'} actionButtons={actionButtons} />
+    <>
+      <ToolBar title='/' mode={ isNewUser ? 'Create New' : 'Edit'} actionButtons={actionButtons} />
       <div className="pageContent bg-white ">
         {Object.keys(formData).length > 0 && getForm(formData)}
         {isNewUser && getForm()}
       </div>
-    </div>
+    </>
   );
 }

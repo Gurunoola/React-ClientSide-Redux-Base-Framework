@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import * as _ from 'lodash';
 import ToolBar from './toolBar';
 import { Icon, HtmlTableBuilder, Collapsiable } from '../../components';
-import { dateFormat } from '../../helpers/utils';
 import { labels, toastMessages } from '../ConstantManager';
 import { get } from './services';
 

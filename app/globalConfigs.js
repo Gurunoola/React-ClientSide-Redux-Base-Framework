@@ -114,7 +114,7 @@ const dropDownOptions = {
 }
 
 const schoolConfig = {
-  name: "School",
+  name: "School new",
   tagLine: "School Tag Line",
   address: "School Address",
   contact: "School Contact",

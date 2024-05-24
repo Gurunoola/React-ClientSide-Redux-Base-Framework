@@ -20,7 +20,7 @@ function PageHeader({ title, actionButtons, className }) {
         {title}
       </Link>
       else
-      return <button class={`btn btn-${type} p-1`} onClick={onClick || undefined}>
+      return <button class={`btn btn-${type}`} onClick={onClick || undefined}>
         <Icon {...iconOptions} />
         {title} 
       </button>
